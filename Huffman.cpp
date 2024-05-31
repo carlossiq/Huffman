@@ -19,3 +19,4 @@
 struct Node;
 class HuffmanTree;
 class HuffmanCoding;
+//comen
