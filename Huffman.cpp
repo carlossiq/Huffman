@@ -16,3 +16,4 @@
 //              decode - decodifica um texto codificado usando a árvore de Huffman
 //     Métodos auxiliares para calcular as frequências dos caracteres e inicializar o processo de construção da árvore.
 
+dd
