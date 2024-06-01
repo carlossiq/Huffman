@@ -19,6 +19,8 @@ int main()
         }
         else
             printf("%c - %d\n", teste[i].dados, teste[i].freq);
+
+    //para testar o .h
                 
     }
     
