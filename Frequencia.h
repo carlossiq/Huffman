@@ -3,6 +3,13 @@
 #define FREQUENCIA
 
 #include <iostream>
+#include <vector>
+#include <fstream>
+
+using std::string;
+using std::vector;
+using std::ifstream;//leitura de arquivo
+
 
 struct NO
 {
@@ -11,32 +18,30 @@ struct NO
     struct NO *direita, *esquerda;
 };
 
-struct  NO *frequencia(char nome[], int *cont)
+vector<NO> frequencia(string nome, int *cont) //*cont serve como ontador para saber quantos caracteres diferentes tem
 {
-    FILE *arquivo;
+    ifstream arquivo(nome);
 
-    struct NO * frequencia_crescente;
-
-    int ASCII[256], i, k=0, contador=0;
-    for (i = 0; i < 256; i++)
-    {
-        ASCII[i] = 0;           //inicializando todos com frequencia zero
-    }
+    int ASCII[256]={0}, i, k=0, contador=0;
     
 
-    arquivo = fopen(nome, "r");
-
-    if (arquivo==NULL)
+    if (!arquivo.is_open())
     {
         printf("erro ao abrir o arquivo");
+        vector<NO> erro(1);
+        erro[0].dados= '\0';
+        erro[0].direita= nullptr;
+        erro[0].esquerda= nullptr;
+        erro[0].freq= 0;
+
+        return erro;
     }
     else
     {
         char c;
         int n;
-        while (!feof(arquivo))
+        while (arquivo.get(c))
         {
-            c = getc(arquivo);
             n = c;
             ASCII[n-1]++;
         }
@@ -48,7 +53,8 @@ struct  NO *frequencia(char nome[], int *cont)
                 contador++;
             }
         }
-        frequencia_crescente = (struct NO *) malloc(contador*sizeof(struct NO));
+
+        vector<NO> frequencia_crescente(contador);//contador está dizendo quantos elementos terão no vector
 
         for (int i = 0; i < 256; i++)
         {
@@ -83,10 +89,12 @@ struct  NO *frequencia(char nome[], int *cont)
                 }
             }
         }
-    }
-    *cont = contador;
-    return frequencia_crescente; //o retorno será um vetor de estrutura nó, com o caracetere e a frequencia que aparecem, nó esquerdo e nó direito NULL, o
+
+        *cont = contador;
+        return frequencia_crescente; //o retorno será um vector de estrutura nó, com o caracetere e a frequencia que aparecem, nó esquerdo e nó direito NULL, o
                                  //o vetor estará em ordem crescente de frequencia, sendo que as frequencias zero foram retiradas.
+    }
+    
 }
 
 #endif

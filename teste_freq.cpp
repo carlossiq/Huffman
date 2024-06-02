@@ -1,13 +1,13 @@
 #include <iostream>
 
-#include "Frequencia.h"
+#include "frequencia.h"
 
 using namespace std;
 
 int main()
 {
     int i, *n;
-    struct NO *teste;
+    vector<NO> teste;
 
     teste = frequencia("teste.txt", n);
 
