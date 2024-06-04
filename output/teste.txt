@@ -1,0 +1,3 @@
+Apenas um teste de verificacao de letras. 
+Com suas respectivas frequencias de apareciemnto, 
+tudo isso sem acentuacao mas considerando pontuacao.
