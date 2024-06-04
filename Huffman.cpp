@@ -16,12 +16,10 @@
 //              decode - decodifica um texto codificado usando a árvore de Huffman
 //     Métodos auxiliares para calcular as frequências dos caracteres e inicializar o processo de construção da árvore.
 
-<<<<<<< Updated upstream
 struct Node;
 class HuffmanTree;
 class HuffmanCoding;
 //comen
-=======
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -33,4 +31,3 @@ using namespace std;
 struct Node;
 class HuffmanTree;
 class HuffmanCoding;
->>>>>>> Stashed changes
